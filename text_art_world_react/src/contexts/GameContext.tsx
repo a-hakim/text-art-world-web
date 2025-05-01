@@ -67,11 +67,11 @@ const initialPlayerStats: PlayerStats = {
 
 // Define possible enemies
 const enemies: EnemyStats[] = [
-  { name: 'Weak Goblin', health: 20, attack: 4, reward: 20 },      // Monster 1
-  { name: 'Slime', health: 30, attack: 6, reward: 30 },          // Monster 2
-  { name: 'Goblin Scout', health: 45, attack: 8, reward: 40 },   // Monster 3
-  { name: 'Orc Grunt', health: 60, attack: 12, reward: 60 },     // Monster 4
-  { name: 'Orc Warrior', health: 70, attack: 16, reward: 80 },    // Monster 5
+  { name: 'Slime', health: 20, attack: 4, reward: 20 },    
+  { name: 'Goblin', health: 30, attack: 6, reward: 30 },          
+  { name: 'Orc', health: 45, attack: 8, reward: 40 },   
+  { name: 'Wyvern', health: 60, attack: 12, reward: 60 },     
+  { name: 'Dragon', health: 70, attack: 16, reward: 80 },   
 ];
 
 // Create the provider component
