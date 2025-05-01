@@ -21,12 +21,12 @@ const BattleScreen: React.FC = () => {
 
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Player Stats */}
-        <div className="md:col-span-1">
+        <div className="md:col-span-1 grid">
           <PlayerStatsDisplay />
         </div>
 
         {/* Enemy Stats */}
-        <div className="md:col-span-1">
+        <div className="md:col-span-1 grid">
           <EnemyStatsDisplay />
         </div>
       </div>

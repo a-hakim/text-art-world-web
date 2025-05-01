@@ -25,14 +25,14 @@ const MessageLog: React.FC<MessageLogProps> = ({ messages }) => {
   }, [messages]);
 
   return (
-    <div className="p-4 border border-slate-700 rounded-lg bg-slate-800/50 shadow-inner h-64 overflow-y-auto flex flex-col space-y-3">
+    <div className="p-4 border border-slate-700 rounded-lg bg-slate-800/50 shadow-inner aspect-video overflow-y-auto flex flex-col space-y-3">
       {messages.map((msg) => {
         let bubbleClasses = 'px-4 py-2 rounded-lg max-w-xs md:max-w-md lg:max-w-lg break-words ';
         let containerClasses = 'flex ';
 
         switch (msg.sender) {
           case 'player':
-            bubbleClasses += 'bg-blue-600 text-white rounded-br-none';
+            bubbleClasses += 'bg-amber-600 text-white rounded-br-none';
             containerClasses += 'justify-end'; // Align right
             break;
           case 'enemy':
