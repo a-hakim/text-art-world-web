@@ -275,14 +275,14 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       // --- End Progression Logic ---
 
       setPlayerStats(currentPlayerStats);
-      setEnemyStats(null);
+      setEnemyStats(null); // Enemy is set to null, indicating victory in this turn
 
       // --- Check if the defeated enemy is the final boss --- 
       if (currentEnemyStats.name === 'Orc Warrior') {
-        messagesToQueue.push({ text: `Congratulations! You have defeated the final boss!`, sender: 'system' });
+        messagesToQueue.push({ text: `Congratulations! You have defeated the final boss!`, sender: 'system' }); // Win message
         queueMessages(messagesToQueue);
         // Delay screen transition to Game Over (Win state)
-        setTimeout(() => setCurrentScreen('GameOver'), 500 * (messagesToQueue.length + 1) + 1000);
+        setTimeout(() => setCurrentScreen('GameOver'), 500 * (messagesToQueue.length + 1) + 1000); // Transition to GameOver
       } else {
         // --- Continue to next chapter if not the final boss --- 
         setCurrentChapter(prev => prev + 1);
