@@ -239,11 +239,12 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     // Check if enemy is defeated
     if (currentEnemyStats.health <= 0) {
       messagesToQueue.push({ text: `${currentEnemyStats.name} is defeated!`, sender: 'system' });
-      const healthGain = Math.floor(currentEnemyStats.reward / 2);
-      messagesToQueue.push({ text: `You gained ${currentEnemyStats.reward} gold and ${healthGain} health.`, sender: 'system' });
+      // const healthGain = Math.floor(currentEnemyStats.reward / 2); // Removed health gain calculation
+      // messagesToQueue.push({ text: `You gained ${currentEnemyStats.reward} gold and ${healthGain} health.`, sender: 'system' }); // Updated message
+      messagesToQueue.push({ text: `You gained ${currentEnemyStats.reward} gold.`, sender: 'system' }); // Only mention gold gain
       currentPlayerStats.gold += currentEnemyStats.reward;
-      currentPlayerStats.health += healthGain;
-       if (currentPlayerStats.health > 100) currentPlayerStats.health = 100;
+      // currentPlayerStats.health += healthGain; // Removed health increase
+      // if (currentPlayerStats.health > 100) currentPlayerStats.health = 100; // Removed health capping as it's no longer needed here
 
       // --- Add Level and Attack Progression Logic --- 
       const previousLevel = currentPlayerStats.level;
@@ -274,10 +275,20 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
       setPlayerStats(currentPlayerStats);
       setEnemyStats(null);
-      setCurrentChapter(prev => prev + 1);
-      queueMessages(messagesToQueue); // Queue defeat and level up messages
-      // Delay screen transition until messages are likely done (adjust timing as needed)
-      setTimeout(() => setCurrentScreen('Chapter'), 500 * (messagesToQueue.length + 1) + 1000); // Base delay + per message + buffer
+
+      // --- Check if the defeated enemy is the final boss --- 
+      if (currentEnemyStats.name === 'Orc Warrior') {
+        messagesToQueue.push({ text: `Congratulations! You have defeated the final boss!`, sender: 'system' });
+        queueMessages(messagesToQueue);
+        // Delay screen transition to Game Over (Win state)
+        setTimeout(() => setCurrentScreen('GameOver'), 500 * (messagesToQueue.length + 1) + 1000);
+      } else {
+        // --- Continue to next chapter if not the final boss --- 
+        setCurrentChapter(prev => prev + 1);
+        queueMessages(messagesToQueue); // Queue defeat and level up messages
+        // Delay screen transition until messages are likely done
+        setTimeout(() => setCurrentScreen('Chapter'), 500 * (messagesToQueue.length + 1) + 1000);
+      }
       return;
     }
 
