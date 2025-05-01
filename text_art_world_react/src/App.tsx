@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// Removed unused React import
 import MainMenu from './components/MainMenu';
 import BattleScreen from './components/BattleScreen';
 import AboutScreen from './components/AboutScreen';
@@ -12,7 +12,8 @@ import { GameProvider, useGame } from './contexts/GameContext';
 export type GameScreen = 'MainMenu' | 'NameInput' | 'Chapter' | 'Battle' | 'About' | 'Credits' | 'GameOver' | 'Victory';
 
 function AppContent() {
-  const { currentScreen, setCurrentScreen, playerName, setPlayerName } = useGame();
+  // Removed unused setPlayerName
+  const { currentScreen, setCurrentScreen, playerName } = useGame();
   // Remove unused state and handler
   // const [nameInput, setNameInput] = useState('');
 

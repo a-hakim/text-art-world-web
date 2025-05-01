@@ -3,7 +3,8 @@ import { useGame } from '../contexts/GameContext';
 
 const ChapterScreen: React.FC = () => {
   // Import startNextBattle from the context
-  const { setCurrentScreen, currentChapter, startNextBattle } = useGame();
+  // Removed unused setCurrentScreen
+  const { currentChapter, startNextBattle } = useGame();
 
   // Placeholder for chapter-specific content/story
   const getChapterContent = (chapter: number) => {
