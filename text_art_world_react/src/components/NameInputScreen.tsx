@@ -3,7 +3,8 @@ import { useGame } from '../contexts/GameContext';
 
 const NameInputScreen: React.FC = () => {
   const { setPlayerName, setCurrentScreen } = useGame();
-  const [name, setName] = useState('');
+  // Set the default value for the name state
+  const [name, setName] = useState('Hero');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
