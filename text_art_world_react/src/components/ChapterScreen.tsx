@@ -28,8 +28,6 @@ const ChapterScreen: React.FC = () => {
   const handleStartBattle = () => {
     // Call startNextBattle to set enemy and navigate
     startNextBattle();
-    // Remove the direct navigation
-    // setCurrentScreen('Battle'); 
   };
 
   return (
@@ -44,13 +42,6 @@ const ChapterScreen: React.FC = () => {
       >
         Start Battle
       </button>
-      {/* Optionally add a button to go back to the main menu? */}
-      {/* <button
-        onClick={() => setCurrentScreen('MainMenu')}
-        className="mt-4 px-4 py-2 bg-slate-600 text-slate-100 font-semibold rounded hover:bg-slate-700 transition duration-200"
-      >
-        Main Menu
-      </button> */}
     </div>
   );
 };

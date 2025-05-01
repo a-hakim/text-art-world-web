@@ -81,7 +81,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [currentScreen, setCurrentScreen] = useState<GameScreen>('NameInput');
   const [gameMessages, setGameMessages] = useState<GameMessage[]>([]);
   // Removed unused messageCount and setMessageCount
-  // const [messageCount, setMessageCount] = useState(0);
   const [currentChapter, setCurrentChapter] = useState(1);
   const [messageQueue, setMessageQueue] = useState<QueuedMessage[]>([]);
   // Changed NodeJS.Timeout to ReturnType<typeof setTimeout>
@@ -136,7 +135,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const clearMessages = () => {
     setGameMessages([]);
     // Removed messageCount reset
-    // setMessageCount(0);
     setMessageQueue([]);
     setIsProcessingMessages(false); // Reset flag
     if (timeoutRef.current) {
@@ -149,18 +147,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const setPlayerName = (name: string) => {
     setPlayerStats(prev => ({ ...prev, name }));
   };
-
-  // Removed unused addMessage function
-  /*
-  const addMessage = (message: string, sender: MessageSender) => { // Add sender param
-    setMessageCount(prevCount => {
-      const newStep = prevCount + 1;
-      const newMessage: GameMessage = { step: newStep, text: message, sender }; // Include sender
-      setGameMessages(prevMessages => [...prevMessages.slice(-19), newMessage]); // Keep last 20 messages
-      return newStep;
-    });
-  };
-  */
 
   const startNextBattle = () => {
     clearMessages();
@@ -240,12 +226,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     // Check if enemy is defeated
     if (currentEnemyStats.health <= 0) {
       messagesToQueue.push({ text: `${currentEnemyStats.name} is defeated!`, sender: 'system' });
-      // const healthGain = Math.floor(currentEnemyStats.reward / 2); // Removed health gain calculation
-      // messagesToQueue.push({ text: `You gained ${currentEnemyStats.reward} gold and ${healthGain} health.`, sender: 'system' }); // Updated message
       messagesToQueue.push({ text: `You gained ${currentEnemyStats.reward} gold.`, sender: 'system' }); // Only mention gold gain
       currentPlayerStats.gold += currentEnemyStats.reward;
-      // currentPlayerStats.health += healthGain; // Removed health increase
-      // if (currentPlayerStats.health > 100) currentPlayerStats.health = 100; // Removed health capping as it's no longer needed here
 
       // --- Add Level and Attack Progression Logic --- 
       const previousLevel = currentPlayerStats.level;
