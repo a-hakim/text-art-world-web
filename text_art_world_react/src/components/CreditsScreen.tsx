@@ -9,8 +9,8 @@ const CreditsScreen: React.FC = () => {
       <h1 className="text-3xl font-bold mb-6 text-amber-500">CREDITS</h1>
       <div className="p-6 border border-amber-500 rounded-lg bg-slate-800 shadow-lg max-w-md text-center space-y-2">
         <p>Game Design & Programming:</p>
-        <p className="text-amber-400">[Your Name/Studio Name]</p>
-        <p className="mt-4">Based on the original C++ version by Bookklik Tech (2018).</p>
+        <p className="text-amber-400">Bookklik Technologies</p>
+        <p className="mt-4">Based on the original C++ version by A.Hakim Noor (2015).</p>
         <p>Special Thanks:</p>
         <p className="text-amber-400">React Community, Tailwind CSS</p>
       </div>

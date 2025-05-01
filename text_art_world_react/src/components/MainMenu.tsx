@@ -53,7 +53,7 @@ const MainMenu: React.FC = () => {
           Quit (Reset Game)
         </button>
       </div>
-      <p className="mt-8 text-sm text-slate-500">Version: SEPT'18 (React Remake)</p>
+      <p className="mt-8 text-sm text-slate-500">Version: 1.0.0 (React Remake)</p>
     </div>
   );
 };

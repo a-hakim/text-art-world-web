@@ -9,8 +9,8 @@ const AboutScreen: React.FC = () => {
       <h1 className="text-3xl font-bold mb-6 text-amber-500">ABOUT</h1>
       <div className="p-6 border border-amber-500 rounded-lg bg-slate-800 shadow-lg max-w-md text-center space-y-2">
         <p>T.A.W : Text Art World.</p>
-        <p>Version 3.12.15 Update U5 (React Remake).</p>
-        <p>Copyright 2018 Bookklik Tech.</p>
+        <p>Version 1.0.0 (React Remake).</p>
+        <p>Copyright 2025 A.Hakim Noor & Bookklik Technologies</p>
         <p>All rights reserved.</p>
       </div>
       <button
