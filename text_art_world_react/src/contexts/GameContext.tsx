@@ -164,7 +164,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const startNextBattle = () => {
     clearMessages();
-    const enemyIndex = Math.min(playerStats.level - 1, enemies.length - 1);
+    // Select enemy based on the current chapter number (adjusting for 0-based array index)
+    const enemyIndex = Math.min(currentChapter - 1, enemies.length - 1);
     const newEnemy = { ...enemies[enemyIndex] };
     setEnemyStats(newEnemy);
     // Queue the initial battle message
