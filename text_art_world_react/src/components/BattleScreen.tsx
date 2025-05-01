@@ -56,7 +56,7 @@ const BattleScreen: React.FC = () => {
       </div>
 
       {/* Action Buttons */}
-      <div className="md:col-span-1 flex flex-col justify-center">
+      <div className="md:col-span-1 flex flex-col justify-center w-full max-w-4xl">
         <ActionButtons />
       </div>
     </div>
